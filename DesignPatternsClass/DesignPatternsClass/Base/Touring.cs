@@ -8,14 +8,14 @@ namespace DesignPatternsClass
 {
     public class Touring : AbstractRoadBike
     {
-        public Touring()
-            : this(BikeColor.Blue)
+        public Touring(IWheel wheel)
+            : this(wheel, BikeColor.Blue)
         {
 
         }
 
-        public Touring(BikeColor color)
-            : base(color)
+        public Touring(IWheel wheel, BikeColor color)
+            : base(wheel, color)
         {
 
         }

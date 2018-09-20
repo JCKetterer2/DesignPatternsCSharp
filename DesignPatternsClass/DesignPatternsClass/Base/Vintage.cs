@@ -8,14 +8,14 @@ namespace DesignPatternsClass
 {
     public class Vintage : AbstractRoadBike
     {
-        public Vintage()
-            : this(BikeColor.Blue)
+        public Vintage(IWheel wheel)
+            : this(wheel, BikeColor.Blue)
         {
 
         }
 
-        public Vintage(BikeColor color)
-            : base(color)
+        public Vintage(IWheel wheel, BikeColor color)
+            : base(wheel, color)
         {
 
         }

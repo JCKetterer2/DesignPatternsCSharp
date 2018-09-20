@@ -43,6 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractFactory\AbstractBikeFactory.cs" />
+    <Compile Include="AbstractFactory\IBikeFrame.cs" />
+    <Compile Include="AbstractFactory\IBikeSeat.cs" />
+    <Compile Include="AbstractFactory\MountainBikeFactory.cs" />
+    <Compile Include="AbstractFactory\MountainBikeFrame.cs" />
+    <Compile Include="AbstractFactory\MountainBikeSeat.cs" />
+    <Compile Include="AbstractFactory\RoadBikeFactory.cs" />
+    <Compile Include="AbstractFactory\RoadBikeFrame.cs" />
+    <Compile Include="AbstractFactory\RoadBikeSeat.cs" />
     <Compile Include="Base\AbstractBike.cs" />
     <Compile Include="Base\AbstractMountainBike.cs" />
     <Compile Include="Base\AbstractRoadBike.cs" />
@@ -56,6 +65,12 @@
     <Compile Include="Base\Touring.cs" />
     <Compile Include="Base\Vintage.cs" />
     <Compile Include="Base\WideWheel.cs" />
+    <Compile Include="Builder\BikeBuilder.cs" />
+    <Compile Include="Builder\BikeDirector.cs" />
+    <Compile Include="Builder\MountainBikeBuilder.cs" />
+    <Compile Include="Builder\MountainBikeDirector.cs" />
+    <Compile Include="Builder\RoadBikeBuilder.cs" />
+    <Compile Include="Builder\RoadBikeDirector.cs" />
     <Compile Include="Singleton\SerialNumberGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

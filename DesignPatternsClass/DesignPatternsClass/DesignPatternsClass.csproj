@@ -46,12 +46,16 @@
     <Compile Include="Base\AbstractBike.cs" />
     <Compile Include="Base\AbstractMountainBike.cs" />
     <Compile Include="Base\AbstractRoadBike.cs" />
+    <Compile Include="Base\AbstractWheel.cs" />
     <Compile Include="Base\BikeColor.cs" />
     <Compile Include="Base\CrossCountry.cs" />
     <Compile Include="Base\Downhill.cs" />
     <Compile Include="Base\IBicycle.cs" />
+    <Compile Include="Base\IWheel.cs" />
+    <Compile Include="Base\NarrowWheel.cs" />
     <Compile Include="Base\Touring.cs" />
     <Compile Include="Base\Vintage.cs" />
+    <Compile Include="Base\WideWheel.cs" />
     <Compile Include="Singleton\SerialNumberGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

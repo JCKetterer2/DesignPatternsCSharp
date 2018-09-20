@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DesignPatternsClass
 {
-    public interface IBicycle
+    public class WideWheel : AbstractWheel
     {
-        IWheel Wheel { get; }
-        BikeColor ColorType { get; }
-
-        void Paint(BikeColor color);
+        public WideWheel(int size) : base(size, true)
+        {
+            //a wide wheel
+        }
     }
 }

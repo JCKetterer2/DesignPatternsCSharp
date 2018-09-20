@@ -8,6 +8,7 @@ namespace DesignPatternsClass
 {
     public abstract class AbstractBike : IBicycle
     {
+        private IWheel _wheel;
         private BikeColor _color;
 
         public BikeColor ColorType
@@ -19,8 +20,23 @@ namespace DesignPatternsClass
         }
 
 
-        public AbstractBike(BikeColor color)
+        public virtual IWheel Wheel
         {
+            get
+            {
+                return _wheel;
+            }
+        }
+
+
+        public AbstractBike(IWheel wheel)
+            : this(wheel, BikeColor.Chrome)
+        {
+        }
+
+        public AbstractBike(IWheel wheel, BikeColor color)
+        {
+            this._wheel = wheel;
             this._color = color;
         }
 
@@ -33,7 +49,7 @@ namespace DesignPatternsClass
 
         public override string ToString()
         {
-            return this.GetType().Name + " Bicycle Color is " + _color;
+            return this.GetType().Name + " Bicycle has a " + _wheel + " and the Color is " + _color;
         }
     }
 }

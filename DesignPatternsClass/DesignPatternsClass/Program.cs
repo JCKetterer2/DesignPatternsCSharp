@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using Singleton;
 using AbstractFactory;
 using Builder;
+using System.Collections;
+using Iterator;
+using Observer;
+using Visitor;
 
 namespace DesignPatternsClass
 {
@@ -15,7 +19,69 @@ namespace DesignPatternsClass
         {
             //SingletonPatternDemo();
             //AbstractFactoryPatternDemo();
-            BuilderPatternDemo();
+            //BuilderPatternDemo();
+            //IteratorPatternDemo();
+            //IteratorPatternDemo2();
+            //ObserverPatternDemo();
+            VisitorPatternDemo();
+        }
+
+        private static void VisitorPatternDemo()
+        {
+            IWheel wheel = new WideWheel(24);
+            wheel.AcceptVisitor(new WheelDiagnostics());
+            wheel.AcceptVisitor(new WheelInventory());
+        }
+
+        private static void ObserverPatternDemo()
+        {
+            Speedometer mySpeedometer = new Speedometer();
+
+            //two observers watching the above Speedometer
+            SpeedMonitor monitor = new SpeedMonitor(mySpeedometer);
+            GearBox auto = new GearBox(mySpeedometer);
+
+            mySpeedometer.CurrentSpeed = 10;
+            mySpeedometer.CurrentSpeed = 20;
+            mySpeedometer.CurrentSpeed = 25;
+            mySpeedometer.CurrentSpeed = 30;
+            mySpeedometer.CurrentSpeed = 40;
+        }
+
+        private static void IteratorPatternDemo2()
+        {
+            Console.WriteLine("==== Road Bikes ====");
+            RoadBikeRange roadRange = new RoadBikeRange();
+            foreach (IBicycle bicycle in roadRange.Range)
+            {
+                Console.WriteLine(bicycle);
+            }
+
+            Console.WriteLine("==== Mountain Bikes ====");
+            MountainBikeRange mountainRange = new MountainBikeRange();
+            foreach (IBicycle bicycle in mountainRange.Range)
+            {
+                Console.WriteLine(bicycle);
+            }
+        }
+
+        private static void IteratorPatternDemo()
+        {
+            Console.WriteLine("==== Road Bikes ====");
+            RoadBikeRange roadRange = new RoadBikeRange();
+            PrintIterator(roadRange.GetEnumerator());
+
+            Console.WriteLine("==== Mountain Bikes ====");
+            MountainBikeRange mountainRange = new MountainBikeRange();
+            PrintIterator(mountainRange.GetEnumerator());
+        }
+
+        private static void PrintIterator(IEnumerator iter)
+        {
+            while (iter.MoveNext())
+            {
+                Console.WriteLine(iter.Current);
+            }
         }
 
         private static void SingletonPatternDemo()

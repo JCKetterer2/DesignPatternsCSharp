@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Visitor;
 
 namespace DesignPatternsClass
 {
@@ -10,11 +11,16 @@ namespace DesignPatternsClass
     {
         private int _size;
         private bool _wide;
+        private Spokes _spokes;
+        private Bearings _bearings;
 
         public AbstractWheel(int size, bool wide)
         {
             this._size = size;
             this._wide = wide;
+
+            _spokes = new Spokes();
+            _bearings = new Bearings();
         }
 
         public virtual int Size
@@ -31,6 +37,13 @@ namespace DesignPatternsClass
             {
                 return _wide;
             }
+        }
+
+        public void AcceptVisitor(IWheelVisitor visitor)
+        {
+            _spokes.AcceptVisitor(visitor);
+            _bearings.AcceptVisitor(visitor);
+            visitor.Visit(this);
         }
 
         public override string ToString()

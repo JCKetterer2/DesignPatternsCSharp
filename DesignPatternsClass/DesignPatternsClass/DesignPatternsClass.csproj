@@ -71,12 +71,24 @@
     <Compile Include="Builder\MountainBikeDirector.cs" />
     <Compile Include="Builder\RoadBikeBuilder.cs" />
     <Compile Include="Builder\RoadBikeDirector.cs" />
+    <Compile Include="Iterator\MountainBikeRange.cs" />
+    <Compile Include="Iterator\RoadBikeRange.cs" />
+    <Compile Include="Observer\GearBox.cs" />
+    <Compile Include="Observer\SpeedMonitor.cs" />
+    <Compile Include="Observer\Speedometer.cs" />
     <Compile Include="Singleton\SerialNumberGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visitor\Bearings.cs" />
+    <Compile Include="Visitor\IVisitable.cs" />
+    <Compile Include="Visitor\IWheelVisitor.cs" />
+    <Compile Include="Visitor\Spokes.cs" />
+    <Compile Include="Visitor\WheelDiagnostics.cs" />
+    <Compile Include="Visitor\WheelInventory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

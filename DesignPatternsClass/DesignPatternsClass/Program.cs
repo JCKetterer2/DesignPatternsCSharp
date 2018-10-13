@@ -10,6 +10,7 @@ using System.Collections;
 using Iterator;
 using Observer;
 using Visitor;
+using Decorator;
 
 namespace DesignPatternsClass
 {
@@ -23,7 +24,30 @@ namespace DesignPatternsClass
             //IteratorPatternDemo();
             //IteratorPatternDemo2();
             //ObserverPatternDemo();
-            VisitorPatternDemo();
+            //VisitorPatternDemo();
+            //DecoratorPatternDemo();
+
+            //Homework4
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("Homework 4 -- two design patterns for boats");
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine();
+            SingletonBoatHW4();
+            Console.WriteLine();
+            ObserverBoatHW4();
+        }
+
+        private static void DecoratorPatternDemo()
+        {
+            IBicycle myTourBike = new Touring(new NarrowWheel(24), BikeColor.Blue);
+            Console.WriteLine(myTourBike);
+
+            myTourBike = new GoldFrameBike(myTourBike);
+            Console.WriteLine(myTourBike);
+
+            myTourBike = new CustomGripBike(myTourBike);
+            Console.WriteLine(myTourBike);
+
         }
 
         private static void VisitorPatternDemo()
@@ -83,7 +107,7 @@ namespace DesignPatternsClass
                 Console.WriteLine(iter.Current);
             }
         }
-
+        
         private static void SingletonPatternDemo()
         {
             SerialNumberGenerator generator = SerialNumberGenerator.Instance;
@@ -124,6 +148,27 @@ namespace DesignPatternsClass
             IBicycle bicycle = director.Build(builder);
 
             Console.WriteLine(bicycle);
+        }
+
+        //Homework4a
+        private static void SingletonBoatHW4()
+        {
+            SingletonBoat myBoat = SingletonBoat.Instance;
+            Console.WriteLine("There are {0} boat names in the boatNames array", myBoat.BoatNames);
+        }
+
+        //Homework4b
+        private static void ObserverBoatHW4()
+        {
+            ObserverBoatSpeed myBoatSpeed = new ObserverBoatSpeed();
+
+            //observer watching the above ObserverBoatSpeed, using OnValueChanged event
+            ObserverBoatMonitor myMonitor = new ObserverBoatMonitor(myBoatSpeed);
+
+            myBoatSpeed.CurrentSpeed = 20;
+            myBoatSpeed.CurrentSpeed = 25;
+            myBoatSpeed.CurrentSpeed = 30;
+            myBoatSpeed.CurrentSpeed = 50;
         }
     }
 }

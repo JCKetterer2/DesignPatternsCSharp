@@ -10,7 +10,12 @@ namespace DesignPatternsClass
     {
         IWheel Wheel { get; }
         BikeColor ColorType { get; }
+        decimal Price { get; }
 
         void Paint(BikeColor color);
+
+        void CleanFrame();
+        void AirTires();
+        void TestRide();
     }
 }
